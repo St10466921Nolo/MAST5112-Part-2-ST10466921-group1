@@ -1,0 +1,33 @@
+@host = http://127.0.0.1:3000
+
+### Read the menu
+GET {{host}}/api/dishes
+
+### Create a dish. Send this request first to populate the ID used below.
+# @name createDish
+POST {{host}}/api/dishes
+Content-Type: application/json
+
+{
+  "name": "Vetkoek",
+  "category": "Main",
+  "priceCents": 4900,
+  "description": "Served warm."
+}
+
+### Read the newly created dish
+GET {{host}}/api/dishes/{{createDish.response.body.$.id}}
+
+### Replace the dish's editable fields
+PUT {{host}}/api/dishes/{{createDish.response.body.$.id}}
+Content-Type: application/json
+
+{
+  "name": "Curried Vetkoek",
+  "category": "Main",
+  "priceCents": 5200,
+  "description": "Filled with curried mince."
+}
+
+### Remove the dish
+DELETE {{host}}/api/dishes/{{createDish.response.body.$.id}}

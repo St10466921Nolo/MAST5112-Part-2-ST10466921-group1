@@ -1,0 +1,23 @@
+[
+  {
+    "id": "160c3ebd-c006-4e95-bf8d-51e63da8c23c",
+    "name": "Chakalaka & Pap",
+    "category": "Main",
+    "priceCents": 8500,
+    "description": "Slow-cooked spiced vegetables served with soft maize pap."
+  },
+  {
+    "id": "4d34173b-2870-4eaa-aee9-43ca417bf428",
+    "name": "Roasted Butternut Soup",
+    "category": "Starter",
+    "priceCents": 6200,
+    "description": "Silky roast butternut with toasted pumpkin seeds and thyme."
+  },
+  {
+    "id": "bbdf643f-336c-4390-a2ab-33d511b18791",
+    "name": "Malva Pudding",
+    "category": "Dessert",
+    "priceCents": 5800,
+    "description": "Warm apricot sponge with vanilla custard."
+  }
+]

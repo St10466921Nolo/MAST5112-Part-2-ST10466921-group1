@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Table &amp; Thyme | Menu manager</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" type="module"></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="shell heading">
+      <div>
+        <p class="brand">TABLE &amp; THYME</p>
+        <h1>Menu manager</h1>
+      </div>
+      <p class="project">JavaScript coursework</p>
+    </div>
+  </header>
+
+  <main class="shell workspace">
+    <section class="editor" aria-labelledby="editor-title">
+      <h2 id="editor-title">Add a dish</h2>
+      <form id="dish-form" aria-labelledby="editor-title">
+        <fieldset id="dish-fields" disabled>
+          <label for="name">Dish name</label>
+          <input id="name" name="name" maxlength="80" required>
+
+          <div class="field-row">
+            <div>
+              <label for="category">Category</label>
+              <select id="category" name="category" required>
+                <option value="">Select</option>
+                <option>Starter</option>
+                <option>Main</option>
+                <option>Dessert</option>
+                <option>Drink</option>
+              </select>
+            </div>
+            <div>
+              <label for="price">Price (ZAR)</label>
+              <input id="price" name="price" type="number" inputmode="decimal"
+                     min="0" max="9999.99" step="0.01" required>
+            </div>
+          </div>
+
+          <label for="description">Description <span>(optional)</span></label>
+          <textarea id="description" name="description" rows="3" maxlength="240"></textarea>
+
+          <div class="form-actions">
+            <button class="primary" id="save" type="submit">Add dish</button>
+            <button class="quiet" id="cancel" type="button" hidden>Cancel</button>
+          </div>
+        </fieldset>
+      </form>
+      <p id="message" role="status" aria-live="polite"></p>
+      <button id="retry" class="quiet" type="button" hidden>Retry loading menu</button>
+    </section>
+
+    <section class="menu" aria-labelledby="menu-title">
+      <div class="menu-header">
+        <h2 id="menu-title" tabindex="-1">Current menu</h2>
+        <span id="dish-count"></span>
+      </div>
+      <p id="empty">Loading dishes…</p>
+      <ul id="dish-list" class="dish-list" aria-label="Dishes"></ul>
+    </section>
+  </main>
+
+  <template id="dish-template">
+    <li class="dish-card">
+      <div class="dish-copy">
+        <p class="dish-category"></p>
+        <h3 class="dish-name"></h3>
+        <p class="dish-description"></p>
+      </div>
+      <div class="dish-side">
+        <p class="dish-price"></p>
+        <div class="dish-actions">
+          <button type="button" class="quiet edit">Edit</button>
+          <button type="button" class="quiet remove">Remove</button>
+        </div>
+      </div>
+    </li>
+  </template>
+</body>
+</html>
